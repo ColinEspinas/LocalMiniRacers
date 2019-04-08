@@ -1,0 +1,94 @@
+:root {
+    --regularfont: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --white: #ffffff;
+    --lightgray: #edf2f4;
+    --mediumlightgray: #d9e4e8;
+    --black: #111111;
+    --gray: #212121;
+    --red: #d90429;
+    --lightred: #ef233c;
+}
+
+body {
+    font-family: var(--regularfont);
+    background-color: var(--lightgray);
+}
+
+.right {
+    float: right !important;
+}
+
+.left {
+    float: left !important;
+}
+
+.main-nav {
+    background-color: var(--lightgray);
+    box-shadow: 0 0 150px 0px rgba(0, 0, 0, 0.25);
+}
+
+.main-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main-menu>.menu-item {
+    float: left;
+}
+
+.main-menu>.menu-item a {
+    display: block;
+    padding: 15px 10px;
+    color: var(--black);
+    text-decoration: none;
+    transition: all 300ms ease;
+}
+
+.main-menu>.menu-item:not(.brand) a:hover {
+    background-color: var(--lightred);
+    color: var(--white);
+}
+
+.main-menu>.menu-item.right a {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+}
+
+.main-menu>.menu-item.super a {
+    display: block;
+    background-color: var(--lightred);
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-menu>.menu-item.super a:hover {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.main-menu>.menu-item.brand a {
+    font-weight: bold;
+    margin: 0 0px;
+    padding: 10px 25px;
+    background-color: var(--lightgray);
+    border: none;
+}
+
+.main-menu>.menu-item.brand a>img {
+    display: block;
+    height: 31px;
+    transition: transform 300ms ease;
+}
+
+.main-menu>.menu-item.brand a:hover>img {
+    transform: scale(2) rotate(45deg);
+}
+
+.main-menu>.menu-item.active a {
+    padding: 15px 10px 12px 10px;
+    border-bottom: 3px solid var(--red);
+}
