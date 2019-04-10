@@ -1,14 +1,19 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+// Routers
+var indexRouter = require('./routes/index');
+
+// Express App :
 const app = express();
 
+// Setup ejs as templating engine :
 app.set('view engine', 'ejs');
 
+// Set static directory :
 app.use(express.static('public'));
 
-app.get("/",(req, res)=>{
-    res.render("pages/index");
-});
+// Routes :
+app.use('/', indexRouter);
 
 app.listen(8080);
