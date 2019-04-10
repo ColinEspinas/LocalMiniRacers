@@ -198,10 +198,10 @@ nav {
 
 .header-hero:after {
     content: "";
-    background-image: url("/img/logo_background.svg");
-    background-repeat: space;
+    background-image: url("/img/logo_background.png");
     background-size: 50px;
     background-attachment: fixed;
+    background-position: 0 0;
     opacity: 0.2;
     top: 0;
     left: 0;
@@ -209,6 +209,12 @@ nav {
     right: 0;
     position: absolute;
     z-index: -1;
+    animation: bgSlide 5s linear infinite;
+}
+
+@keyframes bgSlide {
+    from { background-position: 0 0; }
+    to { background-position: -100px 50px; }
 }
 
 .header-hero-text {
@@ -222,7 +228,7 @@ nav {
 
 .header-hero-text h1 {
     margin: 0;
-    color: var(--white);
+    color: var(--white); 
     font-size: 3rem;
     text-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     font-family: var(--thickfont);
