@@ -7,6 +7,7 @@ require('../config/passport/passport')(passport, models.user);
 const router = express.Router();
 const authController = require("../controllers/authcontroller");
 
+// Routes :
 router.get("/signup", authController.signup);
 
 router.post('/signup', passport.authenticate('local-signup', {
@@ -14,10 +15,17 @@ router.post('/signup', passport.authenticate('local-signup', {
     failureRedirect: '/signup'
 }));
 
+router.post('/login', passport.authenticate('local-login', {
+    successRedirect: '/dashboard',
+    failureRedirect: '/login'
+}));
+
 router.get("/login", authController.login);
 
-router.get("/dashboard", authController.dashboard);
-
 router.get('/logout', authController.logout);
+
+
+
+
 
 module.exports = router;

@@ -9,14 +9,18 @@
                         <i data-feather="menu"></i>
                     </a>
                 </li>
-                <li class="brand menu-item"><a href="#"><img src="/img/logo.png" alt=""></a></li>
-                <li class="menu-item active"><a href="#">Home</a></li>
-                <li class="menu-item"><a href="#">About</a></li>
-                <li class="menu-item"><a href="#">Contact</a></li>
+                <li class="brand menu-item"><a href="/"><img src="/img/logo.png" alt=""></a></li>
+                <li class="menu-item active"><a href="/#Top">Home</a></li>
+                <li class="menu-item"><a href="/#About">About</a></li>
+                <li class="menu-item"><a href="/#Contact">Contact</a></li>
 
-                <li class="menu-item right super"><a href="/signup">Sign up</a></li>
-                <li class="menu-item right"><a href="/login">Log in</a></li>
-
+                <% if(locals.isLoggedIn != null && !locals.isLoggedIn) { %>
+                    <li class="menu-item right super"><a href="/signup"><i data-feather="user-plus"></i>Sign up</a></li>
+                    <li class="menu-item right"><a href="/login"><i data-feather="user"></i>Log in</a></li>
+                <% } else { %>
+                    <li class="menu-item right"><a href="/logout"><i data-feather="log-out"></i>Logout</a></li>
+                    <li id="dashboard-btn" class="menu-item right"><a href="/dashboard"><i data-feather="layout"></i> Dashboard</a></li>
+                <% }; %>
             </ul>
         </div>
         <script src="/js/topnav.js"></script>

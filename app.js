@@ -7,6 +7,7 @@ const env = require('dotenv');
 // Routers
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
+var dashboardRouter = require('./routes//dashboard');
 
 // Express App :
 const app = express();
@@ -28,6 +29,7 @@ app.use(passport.session());
 // Routes :
 app.use('/', indexRouter);
 app.use('/', authRouter);
+app.use('/dashboard', dashboardRouter);
 
 //Models
 var models = require("./models");

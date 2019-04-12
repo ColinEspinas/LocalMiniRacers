@@ -1,4 +1,5 @@
 const bCrypt = require("bcrypt-nodejs");
+const Sequelize = require("sequelize");
 
 module.exports = function(passport, user) {
     var User = user;
@@ -15,11 +16,11 @@ module.exports = function(passport, user) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
 
-            User.findOne({ where: { email: email }}).then(function(user) {
+            User.findOne({ where: {[Sequelize.Op.or]: [{username: {[Sequelize.Op.eq]: username}}, {email: {[Sequelize.Op.eq]: username}}]}}).then(function(user) {
             
                 if (user) {
                     return done(null, false, {
-                        message: 'That email is already taken'
+                        message: 'That email or username is already taken'
                     });
             
                 } else {
@@ -57,7 +58,71 @@ module.exports = function(passport, user) {
             
             });
         }
-    ))
+    ));
+
+    passport.use('local-login', new LocalStrategy(
+ 
+        {
+     
+            usernameField: 'username',
+     
+            passwordField: 'userpass',
+     
+            passReqToCallback: true
+     
+        },
+     
+     
+        function(req, username, password, done) {
+     
+            var User = user;
+     
+            var isValidPassword = function(userpass, password) {
+     
+                return bCrypt.compareSync(password, userpass);
+     
+            }
+     
+            User.findOne({
+                where: {
+                    [Sequelize.Op.or]: [{username: {[Sequelize.Op.eq]: username}}, {email: {[Sequelize.Op.eq]: username}}]
+                }
+            }).then(function(user) {
+     
+                if (!user) {
+     
+                    return done(null, false, {
+                        message: 'Email does not exist'
+                    });
+     
+                }
+     
+                if (!isValidPassword(user.password, password)) {
+     
+                    return done(null, false, {
+                        message: 'Incorrect password.'
+                    });
+     
+                }
+                var datetime = new Date();
+                User.update({last_login : datetime}, { where: {id: user.id} });
+                var userinfo = user.get();
+                return done(null, userinfo);
+     
+            }).catch(function(err) {
+     
+                console.log("Error:", err);
+     
+                return done(null, false, {
+                    message: 'Something went wrong with your Login'
+                });
+     
+            });
+     
+     
+        }
+     
+    ));
 
     passport.serializeUser(function(user, done) {
  

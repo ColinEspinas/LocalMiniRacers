@@ -80,7 +80,6 @@ nav {
 }
 
 .main-menu>.menu-item.right a {
-    background-color: rgba(0, 0, 0, 0.05);
     padding: 15px 20px;
 }
 
@@ -90,6 +89,11 @@ nav {
     color: var(--white);
     font-weight: bold;
     text-decoration: none;
+}
+
+.main-menu>.menu-item.right a:hover {
+    background-color: var(--mediumlightgray);
+    color: var(--black);
 }
 
 .main-menu>.menu-item.super a:hover {
@@ -121,6 +125,12 @@ nav {
 
 .main-menu>.menu-item.icon {
     display: none;
+}
+
+.main-menu>.menu-item a>svg {
+    height: 15px;
+    transform: scale(1.5);
+    padding: 0 10px 0 0;
 }
 
 @media screen and (max-width: 1000px) {
@@ -156,10 +166,6 @@ nav {
         padding: 15px 10px 12px 10px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         border-left: 3px solid var(--red);
-    }
-
-    .main-menu>.menu-item.right {
-        width: 50%;
     }
 
     .main-menu>.menu-item.brand {
@@ -338,4 +344,38 @@ button[type="submit"]:hover {
     padding: 40px;
     height: 150px;
     filter: drop-shadow( 0 0 25px rgba(0, 0, 0, 0.5));
+}
+
+
+
+/*  */
+/* Dashboard */
+/*  */
+
+.dashboard-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.25);
+    z-index: -10;
+}
+
+.dashboard-aside {
+    padding: 10px;
+    margin: 100px 0 0 0;
+    min-height: 500px;
+    border-radius: 3px;
+    background-color: var(--lightgray);
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.25);
+}
+
+.dashboard-main {
+    padding: 10px;
+    margin: 100px 0 0 0;
+    min-height: 500px;
+    border-radius: 3px;
+    background-color: var(--lightgray);
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.25);
 }

@@ -8,11 +8,6 @@ exports.login = function(req, res) {
     res.render("pages/login", {pageName : "Log In"});
 }
  
- 
-exports.dashboard = function(req, res) {
-    res.render("pages/dashboard", {pageName : "Dashboard"});
-}
-
 exports.logout = function(req, res) {
  
     req.session.destroy(function(err) {
