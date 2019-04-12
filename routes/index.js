@@ -9,4 +9,8 @@ router.get("/signup", (req, res)=>{
     res.render("pages/signup", {pageName : "Sign Up"});
 });
 
+router.get("/login", (req, res)=>{
+    res.render("pages/login", {pageName : "Log In"});
+});
+
 module.exports = router;

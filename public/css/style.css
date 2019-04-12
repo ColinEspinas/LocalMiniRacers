@@ -271,7 +271,7 @@ nav {
     background-color: var(--lightgray);
     border-radius: 3px;
     box-shadow: 0 0 100px 0 rgba(0, 0, 0, 0.25);
-    margin: 0 auto;
+    margin: 0 auto 15px auto;
     width: calc(100% - 25px);
     box-sizing: border-box;
 }
@@ -318,17 +318,24 @@ button[type="submit"]:hover {
     background-color: var(--red);
 }
 
-.return-link {
-    position: absolute;
-    top: 0;
-}
-
 .return-link a {
     display: block;
-    margin: 15px;
-    padding: 10px;
-    color: var(--white);
+    margin: 45px;
+    padding: 0 0 5px 0;
+    color: var(--lightgray);
     text-decoration: none;
-    border: 2px solid var(--white);
-    border-radius: 3px;
+    transition: all 300ms ease;
+    border-bottom: 2px solid var(--lightgray);
+}
+
+.signup-logo {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+.signup-logo img {
+    padding: 40px;
+    height: 150px;
+    filter: drop-shadow( 0 0 25px rgba(0, 0, 0, 0.5));
 }
