@@ -19,9 +19,16 @@
   },
   "homepage": "https://github.com/ColinEspinas/LocalMiniRacers#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.3.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.11"
