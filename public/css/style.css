@@ -2,7 +2,6 @@
 
 :root {
     --regularfont: 'Rubik', sans-serif;
-    --thickfont: 'Rubik', sans-serif;
 
     --white: #ffffff;
     --lightgray: #edf2f4;
@@ -17,6 +16,10 @@ body {
     font-family: var(--regularfont);
     background-color: var(--lightgray);
     color: var(--black);
+}
+
+.clear {
+    clear: both;
 }
 
 .right {
@@ -120,7 +123,7 @@ nav {
 
 .main-menu>.menu-item.active a {
     padding: 15px 10px 12px 10px;
-    border-bottom: 3px solid var(--red);
+    border-bottom: 3px solid var(--lightred);
 }
 
 .main-menu>.menu-item.icon {
@@ -128,10 +131,14 @@ nav {
 }
 
 .main-menu>.menu-item a>svg {
-    height: 15px;
-    transform: scale(1.5);
     padding: 0 10px 0 0;
 }
+
+.feather {
+    height: 15px;
+    transform: scale(1.5);
+    padding: 0 0 0 0;
+  }
 
 @media screen and (max-width: 1000px) {
     .main-menu {
@@ -158,14 +165,14 @@ nav {
         overflow: hidden;
     }
 
-    .main-menu>.menu-item a {
+    .main-menu.open>.menu-item a {
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .main-menu>.menu-item.active a {
         padding: 15px 10px 12px 10px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        border-left: 3px solid var(--red);
+        border-left: 3px solid var(--lightred);
     }
 
     .main-menu>.menu-item.brand {
@@ -180,8 +187,6 @@ nav {
     }
 
     .main-menu>.menu-item.icon a>svg {
-        height: 15px;
-        transform: scale(1.5);
         padding: 0 10px;
     }
 }
@@ -241,7 +246,7 @@ nav {
     color: var(--white); 
     font-size: 3rem;
     text-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-    font-family: var(--thickfont);
+    font-family: var(--regularfont);
     font-weight: normal;
 }
 
@@ -306,8 +311,9 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
     border: 1px solid var(--lightred);
 }
 
-button[type="submit"] {
+button {
     border: none;
+    outline: none;
     background: var(--lightred);
     padding: 10px;
     font-family: var(--regularfont);
@@ -320,7 +326,7 @@ button[type="submit"] {
     margin: 0 0 15px 0;
 }
 
-button[type="submit"]:hover {
+button:hover {
     background-color: var(--red);
 }
 
@@ -372,10 +378,80 @@ button[type="submit"]:hover {
 }
 
 .dashboard-main {
-    padding: 10px;
+    padding: 25px;
     margin: 100px 0 0 0;
     min-height: 500px;
     border-radius: 3px;
     background-color: var(--lightgray);
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.25);
+}
+
+.dashboard-main>h2 {
+    margin: 0px;
+    padding-bottom: 10px;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--lightred);
+}
+
+.racers-list {
+    margin: 0 0 10px 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.racers-list-title {
+    text-transform: uppercase;
+    padding: 10px 0;
+    margin: 10px 0;
+    border-bottom: 1px solid var(--mediumlightgray);
+}
+
+.racers-list-title>span {
+    text-transform: none;
+    font-size: 0.85rem;
+    margin-left: 5px;
+    color: var(--gray);
+}
+
+.racer-item {
+    padding: 10px;
+}
+
+.racer-item {
+    /* background: var(--mediumlightgray); */
+    border-bottom: 1px solid var(--mediumlightgray);
+    transition: all 250ms ease;
+}
+
+.racer-item:hover {
+    background: var(--mediumlightgray);
+    border-radius: 3px;
+}
+
+.racer-item span {
+    display: block;
+    float: left;
+    margin: 10px 10px 10px 0px;
+}
+
+.racer-name {
+    font-weight: bold;
+}
+
+.racer-id {
+    opacity: 0.35;
+}
+
+.racer-lastUse {
+    opacity: 0.35;
+}
+
+.racer-nbUse {
+    opacity: 0.35;
+} 
+
+.racer-drive {
+    float: right;
+    width: 45px;
+    margin: 0;
 }

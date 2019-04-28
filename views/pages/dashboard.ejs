@@ -6,11 +6,36 @@
     <div class="moving-bg dashboard-top"></div>
     <div class="lil-row center between">
         <div class="lil-col 2-12"></div>
-        <aside class="lil-col 2-12 dashboard-aside">
-            
-        </aside>
+        <%# <aside class="lil-col 2-12 dashboard-aside">
+
+        </aside> %>
         <div class="lil-col 6-12 dashboard-main">
+            <h2>Welcome <%= user.username %>!</h2>
+            <p>Here you can select a racer to drive or add a non-registered racer to your account.</p>
             <section class="dashboard-section">
+                <ul class="racers-list">
+                    <h3 class="racers-list-title">Racers<span>by recent usages</span></h3>
+                    <% if (Object.keys(user.racers).length > 10) { %>
+                        <button class="racer-add"><i data-feather="plus"></i>Register a new racer</button>
+                    <% }; %>
+                    <% user.racers.forEach(racer => { %>
+                        <li class="racer-item lil-row">
+                            <div class="lil-col 4-12">
+                                <span class="racer-name"><%= racer.name %></span>
+                                <span class="racer-id">#<%= racer.id %></span>
+                            </div>
+                            <div class="lil-col 6-12">
+                                <span class="racer-lastUse">Last use : <%= racer.last_used_from_now %>,</span>
+                                <span class="racer-nbUse">Number of use : <%= racer.use_count %></span>
+                            </div>
+                            <div class="lil-col 2-12">
+                                <button class="racer-drive"><i data-feather="wifi"></i></button>
+                            </div>
+                            <div class="clear"></div>
+                        </li>
+                    <% }); %>
+                </ul>
+                <button class="racer-add"><i data-feather="plus"></i>Register a new racer</button>
             </section>
         </div>
         <div class="lil-col 2-12"></div>

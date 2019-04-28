@@ -10,9 +10,9 @@
                     </a>
                 </li>
                 <li class="brand menu-item"><a href="/"><img src="/img/logo.png" alt="" title="Return to homepage"></a></li>
-                <li class="menu-item active"><a href="/dashboard">My racers</a></li>
-                <li class="menu-item"><a href="/dashboard/account">My account</a></li>
-                <li class="menu-item"><a href="/dashboard/support">Support</a></li>
+                <li class="menu-item <% if (pageName === 'Dashboard') { %>active<% }; %>"><a href="/dashboard">My racers</a></li>
+                <li class="menu-item <% if (pageName === 'Account') { %>active<% }; %>"><a href="/dashboard/account">My account</a></li>
+                <li class="menu-item <% if (pageName === 'Support') { %>active<% }; %>"><a href="/dashboard/support">Support</a></li>
 
                 <li class="menu-item right"><a href="/logout"><i data-feather="log-out"></i>Logout</a></li>
             </ul>
