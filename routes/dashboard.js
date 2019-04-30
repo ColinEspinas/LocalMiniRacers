@@ -7,9 +7,12 @@ require('../config/passport/passport')(passport, models.user);
 
 const router = express.Router();
 const dashboardController = require("../controllers/dashboardcontroller");
+const racerController = require("../controllers/racercontroller");
 
 // Routes :
 router.get("/", isLoggedIn, dashboardController.dashboard);
+router.get("/register", isLoggedIn, dashboardController.register);
+router.post("/register", isLoggedIn, racerController.register);
 
 
 

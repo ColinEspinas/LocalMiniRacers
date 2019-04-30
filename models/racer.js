@@ -3,13 +3,14 @@ module.exports = function(sequelize, Sequelize) {
     var Racer = sequelize.define('racer', {
  
         id: {
-            autoIncrement: true,
             primaryKey: true,
-            type: Sequelize.INTEGER
+            type: Sequelize.STRING,
+            allowNull: false
         },
  
         name: {
-            type: Sequelize.TEXT
+            type: Sequelize.TEXT,
+            allowNull: false
         },
  
         user_id: {

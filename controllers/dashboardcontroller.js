@@ -24,3 +24,7 @@ exports.dashboard = function(req, res) {
         res.render("pages/dashboard", {pageName : "Dashboard", user: req.user});
     });
 }
+
+exports.register = function(req, res) {
+    res.render("pages/racer_add", {pageName : "Racer registry", user: req.user});
+}

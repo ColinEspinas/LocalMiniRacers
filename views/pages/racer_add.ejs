@@ -1,0 +1,28 @@
+<% include ../includes/header %>
+
+<header>
+    <% include ../includes/dashboardnav %>
+</header>
+
+<main>
+    <div class="moving-bg dashboard-top"></div>
+    <div class="lil-row center between">
+        <div class="lil-col 2-12"></div>
+        <div class="lil-col 3-12 dashboard-main">
+            <h2>Register a racer to your account</h2>
+            <p>Enter you the racer informations to register a racer as yours.</p>
+            <% if (locals.messages.error != null) {%>
+                <p style="color: var(--lightred)"><%= messages.error %></p>
+            <% }; %>
+            <form method="POST" action="/dashboard/register">
+                <input type="text" name="racername" placeholder="Choose a name for your racer" required>
+                <input type="text" name="racerid" placeholder="Racer id (exemple: e3o1h7)" required>
+                <button type="submit"><i data-feather="link"></i> Register my racer</button>
+            </form>
+        </div>
+        <div class="lil-col 2-12"></div>
+    </div>
+
+</main>
+
+<% include ../includes/footer %>

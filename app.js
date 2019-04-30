@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const session = require("express-session");
 const env = require('dotenv');
+var flash = require('express-flash');
 
 // Routers
 var indexRouter = require('./routes/index');
@@ -29,6 +30,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(flash());
 
 // Routes :
 app.use('/', indexRouter);
