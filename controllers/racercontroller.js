@@ -10,11 +10,11 @@ exports.register = function (req, res) {
         if (racer) {
             req.flash('error', 'That racer is already registered to your or another account.');
             res.redirect("/dashboard/register");
-        } else {
+        } else if (!req.body.racerid.trim().match('^\s*$') && !req.body.racername.trim().match('^\s*$')) {
 
             var data = {
-                id: req.body.racerid, 
-                name: req.body.racername, 
+                id: req.body.racerid.trim(), 
+                name: req.body.racername.trim(), 
                 user_id: req.user.id, 
                 use_count: 0, 
                 last_used: new Date(),
@@ -29,6 +29,9 @@ exports.register = function (req, res) {
                     res.redirect("/dashboard");
                 }
             });
+        } else {
+            req.flash('error', 'Non valid name or ID.');
+            res.redirect("/dashboard/register");
         }
     });
 }

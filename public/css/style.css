@@ -338,6 +338,7 @@ button:hover {
     text-decoration: none;
     transition: all 300ms ease;
     border-bottom: 2px solid var(--lightgray);
+    cursor: pointer;
 }
 
 .signup-logo {
@@ -453,4 +454,10 @@ button:hover {
     float: right;
     width: 45px;
     margin: 0;
+}
+
+.racer-delete {
+    float: right;
+    width: 45px;
+    margin: 0 10px 0 0;
 }

@@ -1,0 +1,14 @@
+<% include ../includes/header %>
+<div class="moving-bg" style="height:100vh">
+    <div class="lil-row">
+        <div class="return-link">
+            <h3><a onclick="window.history.back();">Return to previous page</a></h3>
+        </div>
+    </div><br><br><br><br><br><br><br><br>
+    <div class="lil-row center" style="color: var(--white);"><i data-feather="frown"></i></div>
+    <div class="lil-row center">
+        <h1 style="color: var(--white)">Your page (<%= url %>) does not exist.</h1>
+    </div>
+</div>
+
+<% include ../includes/footer %>
