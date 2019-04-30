@@ -16,7 +16,7 @@ module.exports = function(passport, user) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
 
-            User.findOne({ where: {[Sequelize.Op.or]: [{username: {[Sequelize.Op.eq]: username}}, {email: {[Sequelize.Op.eq]: username}}]}}).then(function(user) {
+            User.findOne({ where: {[Sequelize.Op.or]: [{username: {[Sequelize.Op.eq]: req.body.username}}, {email: {[Sequelize.Op.eq]: email}}]}}).then(function(user) {
             
                 if (user) {
                     return done(null, false, {

@@ -5,7 +5,7 @@
  
         "password": null,
  
-        "database": "sequelize_passport",
+        "database": "localminiracers",
  
         "host": "127.0.0.1",
  
